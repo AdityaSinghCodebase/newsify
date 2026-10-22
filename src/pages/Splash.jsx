@@ -26,7 +26,7 @@ function Splash() {
           Newsify
         </Typography>
         <Typography sx={{ mt: 1, color: "#94A3B8" }}>
-          Your world, in one place
+          Your news, in one place
         </Typography>
       </motion.div>
 

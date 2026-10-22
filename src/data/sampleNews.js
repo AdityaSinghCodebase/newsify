@@ -1,0 +1,86 @@
+const hoursAgo = (hours) =>
+  new Date(Date.now() - hours * 60 * 60 * 1000).toISOString();
+
+export const sampleNews = [
+  {
+    id: 1,
+    title:
+      "New satellite mission aims to study climate change in greater detail",
+    source: "Reuters",
+    category: "Science",
+    publishedAt: hoursAgo(3),
+    image: "https://picsum.photos/seed/science1/600/400",
+  },
+  {
+    id: 2,
+    title: "Scientists develop battery that could last 10x longer",
+    source: "BBC",
+    category: "Science",
+    publishedAt: hoursAgo(4),
+    image: "https://picsum.photos/seed/science2/600/400",
+  },
+  {
+    id: 3,
+    title: "India's space mission makes new progress",
+    source: "The Hindu",
+    category: "Science",
+    publishedAt: hoursAgo(28),
+    image: "https://picsum.photos/seed/science3/600/400",
+  },
+  {
+    id: 4,
+    title: "New AI chip promises faster and greener computing",
+    source: "TechCrunch",
+    category: "Tech",
+    publishedAt: hoursAgo(1),
+    image: "https://picsum.photos/seed/tech1/600/400",
+  },
+  {
+    id: 5,
+    title: "Apple unveils next-gen iPhone with major upgrades",
+    source: "The Verge",
+    category: "Tech",
+    publishedAt: hoursAgo(2),
+    image: "https://picsum.photos/seed/tech2/600/400",
+  },
+  {
+    id: 6,
+    title: "Google rolls out new features for Gemini",
+    source: "Reuters",
+    category: "Tech",
+    publishedAt: hoursAgo(30),
+    image: "https://picsum.photos/seed/tech3/600/400",
+  },
+  {
+    id: 7,
+    title: "New education policy changes exam pattern for students",
+    source: "The Hindu",
+    category: "Education",
+    publishedAt: hoursAgo(2),
+    image: "https://picsum.photos/seed/edu1/600/400",
+  },
+  {
+    id: 8,
+    title: "Universities start online degree programs for working people",
+    source: "BBC",
+    category: "Education",
+    publishedAt: hoursAgo(32),
+    image: "https://picsum.photos/seed/edu2/600/400",
+  },
+  {
+    id: 9,
+    title: "Farmers adopt drone technology to spray crops",
+    source: "The Hindu",
+    category: "Agriculture",
+    publishedAt: hoursAgo(4),
+    image: "https://picsum.photos/seed/agri1/600/400",
+  },
+  {
+    id: 10,
+    title: "Government raises minimum support price for key crops",
+    source: "Reuters",
+    category: "Agriculture",
+    publishedAt: hoursAgo(29),
+    image: "https://picsum.photos/seed/agri2/600/400",
+  },
+];
