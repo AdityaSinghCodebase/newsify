@@ -1,4 +1,11 @@
-import { AppBar, Toolbar, IconButton, Typography, Box } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  Box,
+  Badge,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
@@ -6,10 +13,17 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import { useColorMode } from "../context/ColorModeContext";
 import { useNavigate } from "react-router-dom";
+import { useNews } from "../context/NewsContext";
+import { categoryList } from "../data/categories";
 
 function Header() {
   const navigate = useNavigate();
   const { mode, setMode } = useColorMode();
+  const { newCount } = useNews();
+  const totalNew = categoryList.reduce(
+    (sum, category) => sum + newCount(category.name),
+    0,
+  );
 
   return (
     <AppBar
@@ -52,8 +66,10 @@ function Header() {
         <IconButton color="inherit" onClick={() => navigate("/explore")}>
           <SearchIcon />
         </IconButton>
-        <IconButton color="inherit">
-          <NotificationsNoneIcon />
+        <IconButton color="inherit" onClick={() => navigate("/categories")}>
+          <Badge badgeContent={totalNew} color="error" max={99}>
+            <NotificationsNoneIcon />
+          </Badge>
         </IconButton>
       </Toolbar>
     </AppBar>

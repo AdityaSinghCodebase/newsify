@@ -48,6 +48,7 @@ export function NewsProvider({ children }) {
               `${SERVER}/api/feed?url=${encodeURIComponent(feed.url)}`,
             );
             const data = await response.json();
+
             if (!response.ok) return [];
 
             return data.items.map((item) => {

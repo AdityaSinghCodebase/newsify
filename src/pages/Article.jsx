@@ -8,6 +8,8 @@ import { timeAgo } from "../utils/dateHelpers";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import { useSaved } from "../context/SavedContext";
 
+const sampleText = "Description is not given in this article.";
+
 function Article() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -71,8 +73,10 @@ function Article() {
 
         <Typography sx={{ mt: 2, lineHeight: 1.8 }}>
           {" "}
-          {article.description || sampleText}
+          {article.description ||
+            "This feed only shares the headline. Tap the button below to read the full story."}
         </Typography>
+
         {article.link && (
           <Button
             variant="outlined"

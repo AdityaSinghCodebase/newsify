@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Chip, LinearProgress } from "@mui/material";
+import { Box, Chip, LinearProgress, Badge } from "@mui/material";
 import Header from "../components/Header";
 import TopStoryCard from "../components/TopStoryCard";
 import NewsCard from "../components/NewsCard";
@@ -8,7 +8,7 @@ import { useNews } from "../context/NewsContext";
 const categories = ["For You", "Education", "Science", "Tech", "Agriculture"];
 
 function Home() {
-  const { news, loading } = useNews();
+  const { news, loading, newCount, markSeen } = useNews();
   const [selected, setSelected] = useState("For You");
 
   const filtered =
@@ -35,13 +35,23 @@ function Home() {
         }}
       >
         {categories.map((name) => (
-          <Chip
+          <Badge
             key={name}
-            label={name}
-            color="primary"
-            variant={selected === name ? "filled" : "outlined"}
-            onClick={() => setSelected(name)}
-          />
+            badgeContent={name === "For You" ? 0 : newCount(name)}
+            color="error"
+            max={99}
+            sx={{ mr: 0.5 }}
+          >
+            <Chip
+              label={name}
+              color="primary"
+              variant={selected === name ? "filled" : "outlined"}
+              onClick={() => {
+                setSelected(name);
+                if (name !== "For You") markSeen(name);
+              }}
+            />
+          </Badge>
         ))}
       </Box>
 
