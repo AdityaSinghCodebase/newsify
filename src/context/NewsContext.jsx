@@ -4,7 +4,7 @@ import { sampleNews } from "../data/sampleNews";
 
 const NewsContext = createContext();
 
-const SERVER = "http://localhost:4000";
+const SERVER = import.meta.env.VITE_API_URL;
 
 function makeId(text) {
   let hash = 0;
